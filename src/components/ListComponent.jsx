@@ -2,10 +2,10 @@ export default function ListComponent({ arrData, Component }) {
   return (
     <>
       {arrData.map((el, idx) => (
-        //el = {id, name, age}
-        //객체값을 바로 전개연산자로 Card 컴포넌트에 한꺼번에 전달
-        //Component 파라미터에는 실제 Card 컴포넌트 정의 함수가 전달됨
-        //<Component /> -> <Card /> 형태로 내부적으로 호출됨
+        // el = {id, name, age} 객체로 구성되어 있음
+        // 객체값을 바로 전개연산자로 Card 컴포넌트에 한꺼번에 전달
+        // Component 파라미터에는 실제 Card 컴포넌트 정의 함수가 전달됨
+        // <Component /> -> <Card /> 형태로 내부적으로 호출됨
         <Component key={idx} {...el} />
       ))}
     </>

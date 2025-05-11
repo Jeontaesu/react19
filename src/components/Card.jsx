@@ -1,8 +1,8 @@
-export default function Card({ name, age }) {
+export default function Card(props) {
+  console.log(props);
   return (
     <article>
-      <h1>name: {name}</h1>
-      <p>age: {age}</p>
+      <img src={`https://images.tmdb.org/t/p/w500${props.poster_path}`} />
     </article>
   );
 }
