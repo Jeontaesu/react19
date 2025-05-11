@@ -1,4 +1,7 @@
-export default function Btn(props) {
-  console.log(props);
-  return <button onClick={props.handleClick}>{props.label}</button>;
+export default function Btn({ label, handleClick }) {
+  const defaultOpt = { label: "button", handleClick: null };
+  if (!label) label = defaultOpt.label;
+  if (!handleClick) handleClick = defaultOpt.handleClick;
+
+  return <button onClick={handleClick}>{label}</button>;
 }
