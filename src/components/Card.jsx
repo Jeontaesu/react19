@@ -1,8 +1,8 @@
-export default function Card({ data }) {
+export default function Card({ name, age }) {
   return (
     <article>
-      <h1>name: {data.name}</h1>
-      <p>age: {data.age}</p>
+      <h1>name: {name}</h1>
+      <p>age: {age}</p>
     </article>
   );
 }

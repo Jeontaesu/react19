@@ -1,5 +1,6 @@
 import "./app.css";
 import Card from "./components/Card";
+import ListComponent from "./components/ListComponent";
 
 function App() {
   const students = [
@@ -9,7 +10,8 @@ function App() {
   ];
   return (
     <>
-      <Card data={students[0]} />
+      {/* 배열데이터와 더불어 반복 호출될 Card 컴포넌트도 props로 전달 */}
+      <ListComponent arrData={students} Component={Card} />
     </>
   );
 }
