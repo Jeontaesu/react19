@@ -1,30 +1,22 @@
+import { useState } from "react";
 import "./app.css";
-//아래와 같은 방법으로는 App컴포넌트 함수가 재호출될때마다 num값을 기억하지 못하기 때문에 컴포넌트 내부에서 활요이 불가능
-//자바스크립트에서 함수가 호출되더라도 그 함수 내부에 선언된 지역변수를 계속 기억하면서 활용하고 싶을때 쓰는 것이 -> 클로저
-//클로저 : 함수호출시 지역변수를 품고 있는 또 다른 함수를 반환하는 형태
-//리액트의 훅은 고차함수 (클로저) 형태로 구성되어 있음
-let num = 0;
 
 function App() {
   console.log("re-render");
+  // useState 사용법 숙지
+  // [상태값, 상태변경함수] = useState(초기값);
+  // 리액트안에서는 중요한 데이터는 무조건 상태에 담아둠
+  // 상태에 담긴 값은 무조건 상태변경함수를 통해서만 수정
+  // 상태변경함수에 의해서 상태변경이 일어나면 리액트는 컴포넌트를 다시 렌더링하면 변경된 상태값을 화면에 반영
+  const [Num, setNum] = useState(0);
 
-  const minus = () => {
-    num - 1;
-    console.log(num);
-    return num;
-  };
-  const plus = () => {
-    num + 1;
-    console.log(num);
-    return num;
-  };
   return (
     <>
       <h1>React hook</h1>
 
-      <p>{num}</p>
-      <button onClick={minus}>-</button>
-      <button onClick={plus}>+</button>
+      <p>{Num}</p>
+      <button onClick={() => setNum(Num - 1)}>-</button>
+      <button onClick={() => setNum(Num + 1)}>+</button>
     </>
   );
 }
